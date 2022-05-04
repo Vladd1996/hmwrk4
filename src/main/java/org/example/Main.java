@@ -17,7 +17,7 @@ public class Main {
     }
 
     public static char[][] field;
-
+//123
     public static void create_field() {
         field = new char[3][3];
         for (int i = 0; i < 3; i++) {
