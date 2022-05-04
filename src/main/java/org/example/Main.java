@@ -71,6 +71,17 @@ public class Main {
         if (field[2][0] == symb && field[1][1] == symb && field[0][2] == symb) return true;
         return false;
     }
+    public static boolean checkWin2(char symb)
+    {
+        for(int i=0;i<3;i++)
+        {
+            if (field[i][0] == symb && field[i][1] == symb && field[i][2] == symb) return true;
+            if (field[0][i] == symb && field[1][i] == symb && field[2][i] == symb) return true;
+        }
+        if (field[0][0] == symb && field[1][1] == symb && field[2][2] == symb) return true;
+        if (field[0][2] == symb && field[1][1] == symb && field[2][0] == symb) return true;
+        return false;
+    }
 
     public static void main(String[] args) {
         create_field();
@@ -78,7 +89,7 @@ public class Main {
         while (true) {
             listener();
             print_field();
-            if (checkWin('X')) {
+            if (checkWin2('X')) {
                 System.out.println("Human won");
                 break;
             }
@@ -88,8 +99,8 @@ public class Main {
             }
             aiTurn();
             print_field();
-            if (checkWin('0')) {
-                System.out.println("Победил Искуственный Интеллект");
+            if (checkWin2('0')) {
+                System.out.println("computer won");
                 break;
             }
             if (isMapFull()) {
@@ -97,7 +108,7 @@ public class Main {
                 break;
             }
         }
-        System.out.println("Игра закончена");
+        System.out.println("game over");
     }
 
     public static boolean isMapFull() {
